@@ -1,0 +1,38 @@
+
+
+{% extends 'core/base.html' %}
+
+
+{% block content %}
+    <div class="container">
+        <div class="columns">
+            <div class="column is-12">
+                <h1 class="title">
+                    Newest
+                </h1>
+            </div>
+        </div>
+
+        <div class="columns">
+            <div class="column is-12">
+                <h1 class="title">
+                    <table class="table is-striped is-fullwidth">
+                        <tbody>
+                            {% for storie in stories %}
+                                <tr>
+                                    <td>
+                                        {{forloop.counter}}
+                                    </td>
+                                    <td>
+                                        <a href="{{Story.url}}" target="_blank"> {{Story.title}}</a>
+                                        <p>{{ Story.number_of_votes}} votes by {{Story.created_by.username}} {{story.created_at|timesince}} ago</p>
+                                    </td>
+                                </tr>
+                            {% endfor%}
+                        </tbody>
+                    </table>
+                </h1>
+            </div>
+        </div>
+    </div>
+{% endblock %}
